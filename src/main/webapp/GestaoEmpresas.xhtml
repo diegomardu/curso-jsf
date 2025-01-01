@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html 	xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition 	xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:h="http://java.sun.com/jsf/html"
 		xmlns:f="http://java.sun.com/jsf/core"
-		xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<meta charset="UTF-8"/>
-	<title>Gestão Empresas</title>
-	
-	<h:outputStylesheet library="algaworks" name="estilo.css"/>
+		xmlns:p="http://primefaces.org/ui"
+		xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+		template="WEB-INF/template/Layout.xhtml">
+		
+<ui:define name="Cadastro de Empresas"/>		
+
+<ui:define name="conteudo">
 	<f:metadata>
 		<f:viewAction action="#{gestaoEmpresasBean.todasEmpresas}"/>
 	</f:metadata>
 	
-</h:head>
-
-<h:body>
-	<header>
-		<h:graphicImage library="algaworks" name="logo.png" />
-	</header>
-	
 	<h2>Cadastro de Empresas</h2>
 
-	<div id="conteudo">
 		<h:form>
 			<p:dataTable value="#{gestaoEmpresasBean.listaEmpresas}" var="empresa" 
 			emptyMessage="Nenhuma informação a ser exibida" paginator="true" rows="10" paginatorPosition="bottom">
@@ -42,12 +35,6 @@
 				</p:column>
 			
 			</p:dataTable>
-			</h:form>
-		
-	</div>
-
-	<footer>
-		Curso online "JSF e PrimeFaces Essencial"
-	</footer>
-</h:body>
-</html>
+		</h:form>
+	</ui:define>
+</ui:composition>
