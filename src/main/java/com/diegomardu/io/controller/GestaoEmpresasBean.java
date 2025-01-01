@@ -1,44 +1,32 @@
 package com.diegomardu.io.controller;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.diegomardu.io.model.Empresa;
-import com.diegomardu.io.model.TipoEmpresa;
+import com.diegomardu.io.repository.Empresas;
 
 @Named
 @ViewScoped
 public class GestaoEmpresasBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	/*
-	 * private static Integer NUMERO = 0;
-	 * 
-	 * public GestaoEmpresasBean() { NUMERO++; }
-	 * 
-	 * public Integer getNumero() { return NUMERO; }
-	 */
 	
-	private Empresa empresa = new Empresa();
+	@Inject
+	private Empresas empresas;
 	
-	public Empresa getEmpresa() {
-		return empresa;
+	private List<Empresa> listaEmpresas;
+	
+	public List<Empresa> getListaEmpresas() {
+		return listaEmpresas;
 	}
 	
-	public void salvar() {
-		System.out.println("Razao Social: " + empresa.getRazaoSocial()
-				+ " - Nome Fantasia:  " + empresa.getNomeFantasia() 
-				+ " - Tipo Empresa: " + empresa.getTipoEmpresa());
+	public void todasEmpresas() {
+		listaEmpresas = empresas.todas();
 	}
 	
-	public TipoEmpresa[] getTiposEmpresa() {
-		return TipoEmpresa.values();
-	}
-	
-	public String ajuda() {
-		return "AjudaGestaoEmpresas?faces-redirect=true";
-	}
-
 }
