@@ -16,6 +16,33 @@
 	<h2>Cadastro de Empresas</h2>
 
 		<h:form>
+			<p:toolbar>
+			<f:facet name="left">
+				<p:inputText placeholder="Digite aqui termo para pesquisa" size="30" />
+				<p:commandButton value="Pesquisar" icon="fa fa fa-search"/>
+				
+				<span class="ui-separator">
+					<span class="ui-icon ui-icon-grip-dotted-vertical"/>
+				</span>
+				
+				<p:commandButton value="Nova" icon="fa fa-plus"/>
+				
+				<span class="ui-separator">
+					<span class="ui-icon ui-icon-grip-dotted-vertical"/>
+				</span>
+				
+				<p:commandButton title="Editar" icon="fa fa-edit"/>
+								
+				<p:commandButton title="Excluir" icon="fa fa-trash"/>
+				
+				<span class="ui-separator">
+					<span class="ui-icon ui-icon-grip-dotted-vertical"/>
+				</span>
+				
+				<p:commandButton title="Exportar para o Excel" icon="fa fa-file-excel-o"/>
+			</f:facet>
+				
+			</p:toolbar>
 			<p:dataTable value="#{gestaoEmpresasBean.listaEmpresas}" var="empresa" 
 			emptyMessage="Nenhuma informação a ser exibida" paginator="true" rows="10" paginatorPosition="bottom">
 				<p:column headerText="Razão Social" sortBy="#{empresa.razaoSocial}">
