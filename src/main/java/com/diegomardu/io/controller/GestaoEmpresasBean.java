@@ -10,6 +10,7 @@ import javax.inject.Named;
 import org.hibernate.property.access.spi.Setter;
 
 import com.diegomardu.io.model.Empresa;
+import com.diegomardu.io.model.TipoEmpresa;
 import com.diegomardu.io.repository.Empresas;
 import com.diegomardu.io.util.FacesMessages;
 
@@ -51,6 +52,10 @@ public class GestaoEmpresasBean implements Serializable{
 	
 	public void setTermoPesquisa(String termoPesquisa) {
 		this.termoPesquisa = termoPesquisa;
+	}
+	
+	public TipoEmpresa[] getTipoEmpresa() {
+		return TipoEmpresa.values();
 	}
 	
 }
